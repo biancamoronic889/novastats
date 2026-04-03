@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaStats — Statistical Analysis Calculator</title>
+  <meta name="description" content="Modern statistical analysis web app with descriptive stats, correlation, regression, hypothesis testing, chi-square, and ANOVA.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/modules.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="app-header">
+    <div class="logo">
+      <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <rect x="3" y="14" width="4" height="11" rx="1" fill="var(--accent)" stroke="none" opacity="0.6"/>
+        <rect x="9" y="8" width="4" height="17" rx="1" fill="var(--accent)" stroke="none" opacity="0.75"/>
+        <rect x="15" y="4" width="4" height="21" rx="1" fill="var(--accent)" stroke="none" opacity="0.9"/>
+        <rect x="21" y="10" width="4" height="15" rx="1" fill="var(--accent)" stroke="none"/>
+      </svg>
+      <span><span class="highlight">Nova</span><span class="text">Stats</span></span>
+    </div>
+
+    <div class="header-actions">
+      <div class="dropdown">
+        <button class="btn-icon" id="exportDropdown" data-tooltip="Export">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+        <div class="dropdown-menu" id="exportMenu">
+          <button class="dropdown-item" id="exportCSV">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Export Data (CSV)
+          </button>
+          <button class="dropdown-item" id="exportResults">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            Export Results (TXT)
+          </button>
+          <button class="dropdown-item" id="printResults">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Print / PDF
+          </button>
+        </div>
+      </div>
+
+      <button class="btn-icon" id="themeToggle" data-tooltip="Toggle theme">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== APP LAYOUT ===== -->
+  <div class="app-layout">
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <div class="sidebar-section">Data</div>
+      <button class="nav-item active" data-module="data-input">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        <span class="nav-label">Data Input</span>
+      </button>
+
+      <div class="sidebar-section">Analysis</div>
+      <button class="nav-item" data-module="descriptive">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <span class="nav-label">Descriptive</span>
+      </button>
+      <button class="nav-item" data-module="correlation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <span class="nav-label">Correlation</span>
+      </button>
+      <button class="nav-item" data-module="regression">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><line x1="1.05" y1="12" x2="7" y2="12"/><line x1="17.01" y1="12" x2="22.96" y2="12"/></svg>
+        <span class="nav-label">Regression</span>
+      </button>
+      <button class="nav-item" data-module="hypothesis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span class="nav-label">Hypothesis</span>
+      </button>
+      <button class="nav-item" data-module="chi-square">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        <span class="nav-label">Chi-Square</span>
+      </button>
+      <button class="nav-item" data-module="anova">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        <span class="nav-label">ANOVA</span>
+      </button>
+
+      <div class="sidebar-section">Tools</div>
+      <button class="nav-item" data-module="ai-insights">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+        <span class="nav-label">AI Insights</span>
+      </button>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <section class="module-panel active" id="panel-data-input"></section>
+      <section class="module-panel" id="panel-descriptive"></section>
+      <section class="module-panel" id="panel-correlation"></section>
+      <section class="module-panel" id="panel-regression"></section>
+      <section class="module-panel" id="panel-hypothesis"></section>
+      <section class="module-panel" id="panel-chi-square"></section>
+      <section class="module-panel" id="panel-anova"></section>
+      <section class="module-panel" id="panel-ai-insights"></section>
+    </main>
+  </div>
+
+  <!-- Mobile Tab Bar -->
+  <div class="mobile-tabs">
+    <div class="mobile-tabs-inner">
+      <button class="mobile-tab active" data-module="data-input">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        Data
+      </button>
+      <button class="mobile-tab" data-module="descriptive">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Desc
+      </button>
+      <button class="mobile-tab" data-module="correlation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+        Corr
+      </button>
+      <button class="mobile-tab" data-module="regression">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="1" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="23" y2="12"/></svg>
+        Reg
+      </button>
+      <button class="mobile-tab" data-module="hypothesis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Hyp
+      </button>
+      <button class="mobile-tab" data-module="chi-square">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Chi
+      </button>
+      <button class="mobile-tab" data-module="anova">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg>
+        ANOVA
+      </button>
+      <button class="mobile-tab" data-module="ai-insights">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+        AI
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <!-- Load order matters: config -> state -> utils -> stats -> data -> charts -> modules -> ui -> ai -> export -> app -->
+  <script src="js/config.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/utils.js"></script>
+
+  <!-- Statistics Engine -->
+  <script src="js/stats/descriptive.js"></script>
+  <script src="js/stats/distributions.js"></script>
+  <script src="js/stats/correlation.js"></script>
+  <script src="js/stats/regression.js"></script>
+  <script src="js/stats/hypothesis.js"></script>
+  <script src="js/stats/chi-square.js"></script>
+  <script src="js/stats/anova.js"></script>
+
+  <!-- Data & Visualization -->
+  <script src="js/data.js"></script>
+  <script src="js/charts.js"></script>
+
+  <!-- Module Controllers -->
+  <script src="js/modules/descriptive.js"></script>
+  <script src="js/modules/correlation.js"></script>
+  <script src="js/modules/regression.js"></script>
+  <script src="js/modules/hypothesis.js"></script>
+  <script src="js/modules/chi-square.js"></script>
+  <script src="js/modules/anova.js"></script>
+
+  <!-- AI & Export -->
+  <script src="js/ai.js"></script>
+  <script src="js/export.js"></script>
+
+  <!-- UI & App Init -->
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+/* ===== CSS CUSTOM PROPERTIES & THEMING ===== */
+
+:root {
+  /* Dark theme (default) */
+  --bg: #0a0a0f;
+  --bg-alt: #0f0f18;
+  --surface: #141420;
+  --surface-alt: #1a1a2e;
+  --surface-hover: #1f1f35;
+  --border: #2a2a3e;
+  --border-light: #353550;
+
+  --text: #e8e8f0;
+  --text-secondary: #a0a0b8;
+  --text-muted: #6b6b80;
+  --text-inverse: #0a0a0f;
+
+  --accent: #6c5ce7;
+  --accent-hover: #7c6ef7;
+  --accent-light: rgba(108, 92, 231, 0.15);
+  --accent-text: #ffffff;
+
+  --success: #00b894;
+  --success-light: rgba(0, 184, 148, 0.15);
+  --warning: #fdcb6e;
+  --warning-light: rgba(253, 203, 110, 0.15);
+  --danger: #e17055;
+  --danger-light: rgba(225, 112, 85, 0.15);
+  --info: #74b9ff;
+  --info-light: rgba(116, 185, 255, 0.15);
+
+  /* Module accent colors */
+  --mod-descriptive: #6c5ce7;
+  --mod-correlation: #00b894;
+  --mod-regression: #74b9ff;
+  --mod-hypothesis: #fdcb6e;
+  --mod-chi-square: #e17055;
+  --mod-anova: #a29bfe;
+
+  /* Spacing */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition: 0.25s ease;
+  --transition-slow: 0.4s ease;
+
+  /* Typography */
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'SF Mono', 'Cascadia Code', 'Fira Code', 'JetBrains Mono', monospace;
+
+  /* Layout */
+  --header-height: 56px;
+  --sidebar-width: 220px;
+  --sidebar-collapsed: 60px;
+  --content-max: 1200px;
+
+  /* Chart colors */
+  --chart-1: #6c5ce7;
+  --chart-2: #00b894;
+  --chart-3: #74b9ff;
+  --chart-4: #fdcb6e;
+  --chart-5: #e17055;
+  --chart-6: #a29bfe;
+  --chart-7: #ff7675;
+  --chart-8: #55efc4;
+  --chart-grid: rgba(255, 255, 255, 0.06);
+  --chart-axis: rgba(255, 255, 255, 0.2);
+  --chart-text: #a0a0b8;
+}
+
+[data-theme="light"] {
+  --bg: #f5f5fa;
+  --bg-alt: #eeeef4;
+  --surface: #ffffff;
+  --surface-alt: #f8f8fc;
+  --surface-hover: #f0f0f6;
+  --border: #dddde8;
+  --border-light: #e8e8f0;
+
+  --text: #1a1a2e;
+  --text-secondary: #4a4a60;
+  --text-muted: #8888a0;
+  --text-inverse: #ffffff;
+
+  --accent: #5a4bd4;
+  --accent-hover: #4a3bc4;
+  --accent-light: rgba(90, 75, 212, 0.1);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+
+  --chart-grid: rgba(0, 0, 0, 0.06);
+  --chart-axis: rgba(0, 0, 0, 0.2);
+  --chart-text: #4a4a60;
+}
